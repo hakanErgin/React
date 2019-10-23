@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const Search = ({ setSearch }) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("")
   return (
     <form onSubmit={(event) => {
-      event.preventDefault();
+      event.preventDefault()
       setSearch(value)
     }}>
       <label
@@ -13,8 +13,7 @@ const Search = ({ setSearch }) => {
       <input
         value={value}
         onChange={(event) =>
-          setValue(event.target.value)
-        }
+          setValue(event.target.value)}
         name="search"
         type="search"
       />
@@ -26,4 +25,4 @@ const Search = ({ setSearch }) => {
   )
 }
 
-export default Search;
+export default Search

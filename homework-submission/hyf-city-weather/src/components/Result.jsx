@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import List from './List'
 
 // { search } is props.search
 const Result = ({ search }) => {
@@ -7,20 +8,18 @@ const Result = ({ search }) => {
     if (search) {
       fetch(`http://api.openweathermap.org/data/2.5/weather?q=${search}&APPID=02e9f92dd9f823a05877c24d7f4180cd&units=metric/`)
         .then(res => res.json())
-        .then(
-          (result) => {
-            setfetchResults(result)
-          })
-        .catch(function () {
+        .then(res => setfetchResults(res))
+        .catch(function (err) {
+          console.log(err)
         })
     }
   }, [search])
-  console.log(fetchResults)
+
   return (
     <ul>
-      <li><span>Key</span><span>Value</span></li>
+      <List fetchResults={fetchResults} />
     </ul>
   )
 }
 
-export default Result;
+export default Result
