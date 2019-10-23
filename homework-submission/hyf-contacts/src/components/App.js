@@ -1,13 +1,23 @@
-import React from 'react';
-import '../App.css';
-import FetchData from './FetchData'
+import React, { useState, useEffect } from 'react'
+import Sidebar from './Sidebar'
+import '../App.css'
 
-function App() {
+const App = () => {
+  const [results, setResults] = useState(null)
+
+  useEffect(() => {
+    fetch(`https://api.myjson.com/bins/ofhd0`)
+      .then(res => res.json())
+      .then(res => setResults(res))
+      .catch(function (err) {
+        console.log(err)
+      })
+  }, [])
   return (
     <div>
-      <FetchData />
+      <Sidebar results={results} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
