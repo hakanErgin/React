@@ -2,18 +2,24 @@ import React from 'react'
 
 const Sidebar = (result) => {
 
-  let arr = result.results
+  const arr = result.results
   console.log(arr)
 
-  let newArr = [];
+  const newArr = []
   for (var key in arr) {
     newArr.push(arr[key])
+  }
+
+  console.log(newArr)
+  
+  function listItem(key, fname, lname) {
+    return <li key={key}><span>{fname}</span><span>{lname}</span></li>
   }
 
   return (
     <div>
       <ul>
-        {console.log(newArr[1]), console.log(newArr[2])}
+        {newArr.map(x=> listItem(x.id, x.firstName, x.lastName))}
       </ul>
     </div>
   )
