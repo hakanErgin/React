@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Sidebar from './Sidebar'
+import Sidebar from './Sidebar.jsx'
 import '../App.css'
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
       })
   }, [])
   return (
-    <div>
+    <div className='main'>
       <Sidebar results={fetchResults} />
     </div>
   )
