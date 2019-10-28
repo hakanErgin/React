@@ -1,15 +1,8 @@
 import React from 'react'
 
 const Sidebar = (result) => {
- 
-  if (!result.results) return null
 
-  // console.log(arr);
-  
-  // const newArr = []
-  // for (var key in arr) {
-  //   newArr.push(arr[key])
-  // }
+  if (!result.results) return null
 
   function listItem(icon, key, fname, lname) {
     return <li className='clist__contact' key={key}>
