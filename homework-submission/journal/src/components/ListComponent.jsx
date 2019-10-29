@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+
 
 const ListComponent = () => {
   const [apiResults, setApiResults] = useState(null)
@@ -14,9 +16,11 @@ const ListComponent = () => {
 
   function listItem(key, title) {
     return (
-      <li key={key}>
+      <li key={key} >
         <div>
-          <h1 onClick={console.log(key)}>{title}</h1>
+          <Link to={`/${key}`}>
+            {title}
+          </Link>
         </div>
       </li>
     )
@@ -25,7 +29,7 @@ const ListComponent = () => {
   return (
     <div>
       <ul>
-        {apiResults.map(x => listItem(x.id, x.title))}
+        {apiResults.map(item => listItem(item.id, item.title))}
       </ul>
     </div>
   )
