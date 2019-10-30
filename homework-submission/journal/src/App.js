@@ -5,24 +5,24 @@ import './App.css'
 import 'antd/dist/antd.css'
 
 import CreateComponent from './components/CreateComponent'
-import DetailComponent from './components/DetailComponent'
-import ListComponent from './components/ListComponent'
-import Menu from './components/Menu'
+import FetchForDetailComponent from './components/FetchForDetailComponent'
+import FetchForListComponent from './components/FetchForListComponent'
+import MenuComponent from './components/MenuComponent'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" id="Appid">
       <Router>
-        <Menu />
+        <MenuComponent />
         <Switch>
           <Route path='/create' exact>
             <CreateComponent />
           </Route>
           <Route path='/:id'>
-            <DetailComponent />
+            <FetchForDetailComponent />
           </Route>
           <Route path='/' exact>
-            <ListComponent />
+            <FetchForListComponent />
           </Route>
         </Switch>
       </Router>

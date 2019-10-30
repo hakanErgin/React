@@ -1,36 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { List } from 'antd';
 
-
-const ListComponent = () => {
-  const [apiResults, setApiResults] = useState(null)
-
-  useEffect(() => {
-    fetch(`http://142.93.51.96/posts/`)
-      .then(res => res.json())
-      .then(res => setApiResults(res))
-      .catch(err => err)
-  }, [])
-
-  if (!apiResults) return null
-
-  function listItem(key, title) {
-    return (
-      <li key={key} >
-        <div>
-          <Link to={`/${key}`}>
-            {title}
-          </Link>
-        </div>
-      </li>
-    )
-  }
-
+const ListComponent = ({ data }) => {
   return (
     <div>
-      <ul>
-        {apiResults.map(item => listItem(item.id, item.title))}
-      </ul>
+      <h3 style={{ margin: 16 }}>Items</h3>
+      <List
+        bordered dataSource={data}
+        renderItem={item => (
+          <List.Item>
+            <a href={`/${item.id}`}>{item.title}</a>
+          </List.Item>
+        )}
+      />
     </div>
   )
 }
