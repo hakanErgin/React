@@ -6,7 +6,8 @@ const ListComponent = ({ data }) => {
     <div>
       <h3 style={{ margin: 16 }}>Items</h3>
       <List
-        bordered dataSource={data}
+        bordered 
+        dataSource={data}
         renderItem={item => (
           <List.Item>
             <a href={`/${item.id}`}>{item.title}</a>
