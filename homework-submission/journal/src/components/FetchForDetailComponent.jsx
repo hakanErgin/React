@@ -11,7 +11,7 @@ const FetchForDetailComponent = () => {
     executeGetRequest(`/posts/${id}`, res => {
       setApiResults(res)
     })
-  }, [])
+  }, [id])
 
   return (apiResults !== null ? <DetailComponent data={apiResults} /> : null)
 }

@@ -7,18 +7,25 @@ const CreateComponent = () => {
   const [postForm, setPostForm] = useState(false);
 
   const handleInputTitle = (e) => {
-    e.preventDefault()
     setPostTitle(e.target.value)
+    e.preventDefault()
   }
 
   const handleInputContent = (e) => {
-    e.preventDefault()
     setPostContent(e.target.value)
+    e.preventDefault()
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setPostForm(true)
+    validate(postTitle, postContent, setPostForm)
+  }
+
+  function validate(title, content, func) {
+    if (title === '' || content === '') {
+      throw console.error('nope')
+    }
+    else func(true)
   }
 
   return (
@@ -39,9 +46,9 @@ const CreateComponent = () => {
         <br />
         <button type="submit" value="submit">Submit</button>
       </form>
-      {postForm && (
-        <FetchForCreateComponent title={postTitle} content={postContent} />
-      )}
+      {postForm ? (
+        <FetchForCreateComponent setPostForm={setPostForm} title={postTitle} content={postContent} />
+      ) : null}
     </div>
   )
 }
