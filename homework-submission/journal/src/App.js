@@ -1,30 +1,45 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route, } from "react-router-dom"
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import './App.css'
 import 'antd/dist/antd.css'
 
+import AuthComponent from './components/user/AuthComponent'
+import LoginComponent from './components/user/LoginComponent'
+import LogoutComponent from './components/user/LogoutComponent'
 import CreateComponent from './components/CreateComponent'
 import FetchForDetailComponent from './components/FetchForDetailComponent'
 import FetchForListComponent from './components/FetchForListComponent'
 import MenuComponent from './components/MenuComponent'
+import ErrorComponent from './components/ErrorComponent'
 
 function App() {
+  const [error, setError] = useState(null)
   return (
     <div className="App" id="Appid">
       <Router>
         <MenuComponent />
-        <Switch>
-          <Route path='/create' exact>
-            <CreateComponent />
-          </Route>
-          <Route path='/:id'>
-            <FetchForDetailComponent />
-          </Route>
-          <Route path='/' exact>
-            <FetchForListComponent />
-          </Route>
-        </Switch>
+        {error ? (<ErrorComponent error={error} />) : (
+          <Switch>
+            <Route path="/login" exact>
+              <LoginComponent setError={setError} />
+            </Route>
+            <Route path="/logout" exact>
+              <LogoutComponent />
+            </Route>
+
+            <AuthComponent>
+              <Route path='/create' exact>
+                <CreateComponent />
+              </Route>
+              <Route path='/:id'>
+                <FetchForDetailComponent />
+              </Route>
+              <Route path='/' exact>
+                <FetchForListComponent />
+              </Route>
+            </AuthComponent>
+          </Switch>)}
       </Router>
     </div>
   )

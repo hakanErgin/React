@@ -1,4 +1,4 @@
-const FetchForListComponent = ({ title, content }) => {
+const FetchForCreateComponent = ({ title, content }) => {
 
   let url = 'http://142.93.51.96/posts'
 
@@ -18,4 +18,4 @@ const FetchForListComponent = ({ title, content }) => {
   return (null)
 }
 
-export default FetchForListComponent
+export default FetchForCreateComponent
