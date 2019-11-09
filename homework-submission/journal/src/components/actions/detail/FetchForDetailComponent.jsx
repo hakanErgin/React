@@ -8,7 +8,9 @@ const FetchForDetailComponent = () => {
   const [apiResults, setApiResults] = useState(null)
 
   useEffect(() => {
-    executeGetRequest(`/posts/${id}`,
+    executeGetRequest(
+      'get',
+      `/posts/${id}`,
       res => { setApiResults(res) },
       err => { console.log(err) }
     )

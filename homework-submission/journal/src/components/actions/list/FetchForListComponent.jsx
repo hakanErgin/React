@@ -6,11 +6,14 @@ const FetchForListComponent = () => {
   const [apiResults, setApiResults] = useState(null)
 
   useEffect(() => {
-    executeGetRequest('/posts',
+    executeGetRequest(
+      'get',
+      '/posts',
       res => { setApiResults(res) },
       err => { console.log(err) }
     )
   }, [])
+  
   return (apiResults !== null ? <ListComponent data={apiResults} /> : null)
 }
 

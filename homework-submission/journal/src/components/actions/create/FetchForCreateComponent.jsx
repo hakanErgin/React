@@ -1,26 +1,25 @@
 import { useEffect } from 'react'
+import { executeGetRequest } from '../../helpers/auth'
 
 const FetchForCreateComponent = ({ title, content, setPostForm }) => {
 
-  let url = 'http://142.93.51.96/posts'
+ const data = { title, content}
+
   useEffect(() => {
-    fetch(url, {
-      headers: {
-        'Authorization': `Bearer:${localStorage.getItem('token')}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+    executeGetRequest(
+      'post',
+      '/posts',
+      res => {
+        console.log(res[0].title, res[0].content, res[0].id)
+        setPostForm(false)
       },
-      method: "POST",
-      body: JSON.stringify({ title, content })
-    })
-      .then(res => res.json())
-      .then(response => {
-        console.log(response[0].content, response[0].title, response[0].id)
-      })
-      .then(res => setPostForm(false))
-  }, [title, content, url, setPostForm])
+      err => { console.log(err) },
+      data
+    )
+  }, [title, content, setPostForm])
 
   return (null)
 }
 
 export default FetchForCreateComponent
+
