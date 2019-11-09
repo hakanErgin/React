@@ -1,14 +1,12 @@
-import axios from 'axios'
+import Axios from 'axios'
 
-export function executeGetRequest(url, callBack, errorCallback = () => { }) {
-  axios
+export function executeGetRequest(url, callBack, errorCallback) {
+  Axios
     .get(`http://142.93.51.96${url}`, {
       headers: {
         Authorization: `Bearer:${localStorage.getItem('token')}`
       }
     })
-    .then(response => {
-      callBack(response.data)
-    })
-    .catch(err => errorCallback(err))
+    .then(response => { callBack(response.data) })
+    .catch(err => { errorCallback(err) })
 }

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import FetchForCreateComponent from './FetchForCreateComponent'
+import ErrorComponent from '../../ErrorComponent'
 
 const CreateComponent = () => {
   const [postTitle, setPostTitle] = useState('')
   const [postContent, setPostContent] = useState('')
-  const [postForm, setPostForm] = useState(false);
+  const [postForm, setPostForm] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleInputTitle = (e) => {
     setPostTitle(e.target.value)
@@ -23,9 +25,12 @@ const CreateComponent = () => {
 
   function validate(title, content, func) {
     if (title === '' || content === '') {
-      throw console.error('nope')
+      setError('Please fill both fields')
     }
-    else func(true)
+    else {
+      func(true)
+      setError(null)
+    }
   }
 
   return (
@@ -48,7 +53,9 @@ const CreateComponent = () => {
       </form>
       {postForm ? (
         <FetchForCreateComponent setPostForm={setPostForm} title={postTitle} content={postContent} />
-      ) : null}
+      ) : 
+        <ErrorComponent error={error} />
+      }
     </div>
   )
 }

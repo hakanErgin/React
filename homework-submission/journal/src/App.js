@@ -25,18 +25,18 @@ function App() {
               <LoginComponent setError={setError} />
             </Route>
             <Route path="/logout" exact>
-              <LogoutComponent />
+              <LogoutComponent setError={setError} />
             </Route>
 
             <AuthComponent>
               <Route path='/create' exact>
-                <CreateComponent />
+                <CreateComponent setError={setError}/>
               </Route>
-              <Route path='/:id'>
-                <FetchForDetailComponent />
+              <Route path='/:id' exact>
+                <FetchForDetailComponent setError={setError}/>
               </Route>
               <Route path='/' exact>
-                <FetchForListComponent />
+                <FetchForListComponent setError={setError}/>
               </Route>
             </AuthComponent>
           </Switch>)}
