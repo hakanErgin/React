@@ -11,8 +11,7 @@
 
 ## Completed
 
-- [week 1](https://react-week1-study.netlify.com/)
-_simple re-creation of given react exercise_
+- [Simple re-creation of a given exercise](https://react-week1-study.netlify.com/)
 
-- [week 2](https://react-week2-weatherapp.netlify.com/)
-_a weather app that makes simple API calls_
+- [A weather app that makes an API call](https://react-week2-weatherapp.netlify.com/)
+
