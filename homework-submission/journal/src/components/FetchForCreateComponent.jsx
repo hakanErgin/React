@@ -1,6 +1,6 @@
-const FetchForListComponent = ({ title, content }) => {
+const FetchForListComponent = ({ title, body }) => {
 
-  let url = 'http://142.93.51.96/posts'
+  let url = 'https://jsonplaceholder.typicode.com/posts'
 
   fetch(url, {
     headers: {
@@ -8,11 +8,11 @@ const FetchForListComponent = ({ title, content }) => {
       'Content-Type': 'application/json'
     },
     method: "POST",
-    body: JSON.stringify({ title, content })
+    body: JSON.stringify({ title, body })
   })
     .then(res => res.json())
     .then(response => {
-      console.log(response[0].content, response[0].title, response[0].id)
+      console.log(response[0].body, response[0].title, response[0].id)
     })
 
   return (null)

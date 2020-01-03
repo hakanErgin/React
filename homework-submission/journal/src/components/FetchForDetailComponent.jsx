@@ -7,7 +7,7 @@ const FetchForDetailComponent = () => {
   const [apiResults, setApiResults] = useState(null)
 
   useEffect(() => {
-    fetch(`http://142.93.51.96/posts/${id}`)
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then(res => res.json())
       .then(res => setApiResults(res))
       .catch(err => err)

@@ -34,13 +34,13 @@ const CreateComponent = () => {
         <div>
           <label>Body</label>
           <br />
-          <textarea name="content" onChange={handleInputContent} value={postContent} />
+          <textarea name="body" onChange={handleInputContent} value={postContent} />
         </div>
         <br />
         <button type="submit" value="submit">Submit</button>
       </form>
       {postForm && (
-        <FetchForCreateComponent title={postTitle} content={postContent} />
+        <FetchForCreateComponent title={postTitle} body={postContent} />
       )}
     </div>
   )

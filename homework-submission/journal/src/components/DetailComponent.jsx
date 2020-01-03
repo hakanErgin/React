@@ -3,14 +3,14 @@ import { Typography } from 'antd';
 
 const DetailComponent = (data) => {
   const { Title, Paragraph } = Typography;
-  data = data.data[0]
+  data = data.data
   return (
     <Typography>
       <Title>
         {data.title}
       </Title>
       <Paragraph>
-        {data.content}
+        {data.body}
       </Paragraph>
     </Typography>
   )
