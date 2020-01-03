@@ -9,9 +9,10 @@
 - Putting emphasis on writing reusable code (components)
 - How to handle client-side routing
 
-## Completed
+## Completed exercises
 
 - [Simple re-creation of a given exercise](https://react-week1-study.netlify.com/)
 
 - [A weather app that makes an API call](https://react-week2-weatherapp.netlify.com/)
 
+- 
