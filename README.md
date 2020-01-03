@@ -15,4 +15,5 @@
 
 - [A weather app that makes an API call](https://react-week2-weatherapp.netlify.com/)
 
-- 
+- [A listing app that uses a dummy API](https://react-week3-todos.netlify.com/)
+
